@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>04 Ready</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,900' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script>var ml = { timelines: {}};</script>
+  <style>
+  body {
+    font: 13px "Source Sans Pro", Arial, Helvetica, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+  }
+
+  .moving-letters {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 200px;
+  }
+  </style>
+</head>
+<body>
+  <div class="moving-letters">
+    <h1 class="ml4">
+  <span class="letters letters-1">Ready</span>
+  <span class="letters letters-2">Set</span>
+  <span class="letters letters-3">Go!</span>
+</h1>
+
+<!--more-->
+
+<script>
+ml.timelines["ml4"] = anime.timeline({loop: true})
+  .add({
+    targets: '.ml4 .letters-1',
+    opacity: [0,1],
+    scale: [0.2, 1],
+    duration: 800
+  }).add({
+    targets: '.ml4 .letters-1',
+    opacity: 0,
+    scale: 3,
+    duration: 600,
+    easing: "easeInExpo",
+    delay: 500
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: [0,1],
+    scale: [0.2, 1],
+    duration: 800
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: 0,
+    scale: 3,
+    duration: 600,
+    easing: "easeInExpo",
+    delay: 500
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: [0,1],
+    scale: [0.2, 1],
+    duration: 800
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: 0,
+    scale: 3,
+    duration: 600,
+    easing: "easeInExpo",
+    delay: 500
+  }).add({
+    targets: '.ml4',
+    opacity: 0,
+    duration: 500,
+    delay: 500
+  });
+</script>
+
+<style>
+.ml4 {
+  position: relative;
+  font-weight: 900;
+  font-size: 4.5em;
+}
+.ml4 .letters {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0.3em;
+  right: 0;
+  opacity: 0; 
+}
+</style>
+
+
+  </div>
+</body>
+</html>

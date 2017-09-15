@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>13 Rising Strong</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,900' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script>var ml = { timelines: {}};</script>
+  <style>
+  body {
+    font: 13px "Source Sans Pro", Arial, Helvetica, sans-serif;
+    background-color: #98bec8;
+    color: #fff;
+    text-align: center;
+  }
+
+  .moving-letters {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 200px;
+  }
+  </style>
+</head>
+<body>
+  <div class="moving-letters">
+    <h1 class="ml13">Rising Strong</h1>
+
+<!--more-->
+
+<script>
+// Wrap every letter in a span
+$('.ml13').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+ml.timelines["ml13"] = anime.timeline({loop: true})
+  .add({
+    targets: '.ml13 .letter',
+    translateY: [100,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: function(el, i) {
+      return 300 + 30 * i;
+    }
+  }).add({
+    targets: '.ml13 .letter',
+    translateY: [0,-100],
+    opacity: [1,0],
+    easing: "easeInExpo",
+    duration: 1200,
+    delay: function(el, i) {
+      return 100 + 30 * i;
+    }
+  });
+</script>
+
+<style>
+.ml13 {
+  font-size: 1.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-weight: 600;
+}
+
+.ml13 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+</style>
+
+
+  </div>
+</body>
+</html>
