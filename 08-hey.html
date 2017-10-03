@@ -29,8 +29,10 @@
 <body>
   <div class="moving-letters">
     <h1 class="ml8">
-  <span class="letters letters-left">Hi</span>
-  <span class="letters bang">!</span>
+  <span class="letters-container">
+    <span class="letters letters-left">Hi</span>
+    <span class="letters bang">!</span>
+  </span>
   <span class="circle circle-white"></span>
   <span class="circle circle-dark"></span>
   <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
@@ -88,11 +90,22 @@ anime({
 </script>
 
 <style>
-.ml8 {
-  position: relative;
+h1.ml8 {
   font-weight: 900;
   font-size: 4.5em;
   color: #fff;
+  width: 3em;
+  height: 3em;
+}
+
+.ml8 .letters-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 1em;
 }
 
 .ml8 .letters {
